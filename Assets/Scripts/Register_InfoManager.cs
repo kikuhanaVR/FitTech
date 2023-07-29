@@ -19,9 +19,9 @@ public class Register_InfoManager : MonoBehaviour
 
     class RegisterInfo
     {
-        public string __username;
-        public string __password;
-        public string __confirm;
+        public string email;
+        public string password;
+        public string password2;
     }
     
 
@@ -30,9 +30,9 @@ public class Register_InfoManager : MonoBehaviour
         var url = "http://139.162.117.80/signup";
 
         var data = new RegisterInfo();
-        data.__username = _username;
-        data.__password = _password;
-        data.__confirm = _confirm;
+        data.email = _username;
+        data.password = _password;
+        data.password2 = _confirm;
 
         var json = JsonUtility.ToJson(data);
         var postData = Encoding.UTF8.GetBytes(json);
@@ -51,6 +51,7 @@ public class Register_InfoManager : MonoBehaviour
         {
             Debug.Log(operation.isDone);
             Debug.Log(operation.webRequest);
+            Debug.Log(operation.webRequest.error);
             Debug.Log(operation.webRequest.responseCode);
             Debug.Log(operation.webRequest.downloadHandler.text);
             Debug.Log("Http Error" + operation.webRequest.isHttpError);
