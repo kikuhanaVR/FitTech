@@ -37,7 +37,7 @@ public class Register_InfoManager : MonoBehaviour
         var json = JsonUtility.ToJson(data);
         var postData = Encoding.UTF8.GetBytes(json);
 
-        using var request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPOST)
+        var request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPOST)
         {
             uploadHandler = new UploadHandlerRaw(postData),
             downloadHandler = new DownloadHandlerBuffer()
